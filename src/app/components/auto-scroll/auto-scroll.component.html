@@ -1,0 +1,208 @@
+<!-- <mat-toolbar>
+	<div>Chatbot</div>
+	<span class="spacer"></span>
+</mat-toolbar> -->
+
+<!-- <div class="chat-content" id="scroll" #scroll *ngIf="!rateService && !supportIntro">
+	<div class="chat-message" [@listAnimation]="list_message.length"
+		[ngStyle]="{'font-size': messageFontSize}">
+		<div class="message-row" *ngFor="let message of list_message"
+			[ngClass]="{'message-inverse':message.type_user === 'E'}">
+			<div *ngIf="message.type_user === 'R'" class="animated zoomIn avatar" [ngStyle]="{'background-image': 'url('+config.avatar+')', 'border-radius': '100%',
+					'box-shadow': '0px 0px 15px -10px '+config.shadowColor, 'background-color': config.avatarBackground}">
+			</div>
+			<div class="bbwidget-message-container">
+				<div class="bbwidget-message-username">
+					{{getMessageUsername(message.type_user) | translate}}
+				</div>
+				<div class="animated zoomIn"
+					[ngClass]="{'bubble':(message.type_user === 'R' && message.visible), 'bubble-inverse':(message.type_user === 'E' && message.type_message !== 'CO'), '': !message.visible , 'app-message':message.type_user === 'A', 'bubble-inverse-image':(message.type_user === 'E' && message.type_message === 'CO')}"
+					[style.--bubble-bg-color]="config.userMessageBackgroundColor | safe: 'style'"
+					[style.--bubble-color]="config.userMessageTextColor | safe: 'style'"> -->
+
+					<!-- Contenedor de texto -->
+					<!-- <div class="bbwidget-message" *ngIf="message.type_message=='TX'">
+						<div class="bbwidget-message-text" [innerHTML]="message.text | linkify"></div>
+						<div class="bbwidget-message-time secondary-text">{{message.date}}</div>
+					</div> -->
+
+					<!-- Contenedor de archivo (no imagen) -->
+					<!-- <div class="bbwidget-message" *ngIf="message.type_message=='FL'">
+						<mat-icon>description</mat-icon>
+						<div class="message" [innerHTML]="message.text"></div>
+						<div class="bbwidget-message-time secondary-text">{{message.date}}</div>
+					</div> -->
+
+					<!-- Contenedor de emoji -->
+					<!-- <div class="bbwidget-message" *ngIf="message.type_message=='EM'"> -->
+						<!-- <div class="message" [innerHTML]="message.text"></div> -->
+						<!-- <ngx-emoji set="apple" emoji="{{message.text}}" size="24"></ngx-emoji>
+						<div class="bbwidget-message-time secondary-text">{{message.date}}</div>
+					</div> -->
+
+					<!-- Contenedor de imágenes -->
+					<!-- <div class="bbwidget-message" style="max-height: 320px; overflow-y: hidden;"
+						*ngIf="message.type_message=='CO'">
+						<div *ngIf="message.content?.message.text">
+							<div class="message">{{messsage.content.message.text}}</div>
+							<div class="bbwidget-message-time secondary-text">{{message.date}}</div>
+						</div>
+						<img *ngIf="message.content.message.attachment && message.content.message.attachment?.type == 'image'"
+							[src]="message.content.message.attachment.payload.media[0].url | safe: 'resourceUrl'"
+							style="width: 100%; height: 100%;">
+						<video
+							*ngIf="message.content.message.attachment && message.content.message.attachment?.type == 'video'"
+							[src]="message.content.message.attachment.payload.url | safe: 'resourceUrl'"
+							style="width: 100%;" type="video/mp4" controls>
+							Your browser does not support the video tag.
+						</video>
+					</div> -->
+
+					<!-- Contenedor quick replies -->
+					<!-- <div *ngIf="message.type_message=='QR'" class="bbwidget-message" style="display: block;"
+						[ngStyle]="{'flex-direction': optionsDirection}">
+						<div
+							style="display: flex; display: -ms-flexbox; justify-content: flex-start; width: 100%;">
+							<div class="message">{{message.quick_reply.message.text}}</div>
+						</div>
+						<ng-container *ngFor="let q_reply of message.quick_reply.message.quick_replies">
+							<agm-map *ngIf="q_reply.content_type == 'location'" [latitude]="latitude"
+								[longitude]="longitude" [zoom]="16" (mapClick)="mapClicked($event)">
+								<agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+							</agm-map>
+							<button class="btn-qr" mat-raised-button *ngIf="!message.quick_reply.used"
+								(click)="quick_repliesV2(message.quick_reply, q_reply)">
+								<div *ngIf="q_reply.content_type == 'text'">
+									<img src="{{q_reply.image_url}}" *ngIf="q_reply.image_url"
+										style="width: 20px; height: 20px; margin: 2px;">
+									{{q_reply.title}}
+								</div>
+								<div *ngIf="q_reply.content_type == 'location'"
+									(click)="GetCurrentLocation()">
+									<img src="{{q_reply.image_url}}" *ngIf="q_reply.image_url"
+										style="width: 20px; height: 20px; margin: 2px;"> Enviar
+									Ubicación
+								</div>
+							</button>
+						</ng-container>
+					</div> -->
+
+					<!-- Contenedor reconexion agente humano -->
+					<!-- <div *ngIf="message.type_message=='AH'">
+						<div style="display: flex; display: -ms-flexbox; justify-content: flex-start;">
+							<div class="message">¿Deseas más información?</div>
+						</div>
+						<button mat-raised-button (click)="GetEmail()"
+							style="margin: 8px 4px; border-radius: 6px; border: 1px solid #b7b7b7d1;">
+							Chatea con un agente
+						</button>
+					</div> -->
+
+					<!-- Contenedor template generico -->
+					<!-- <div class="generic-template"
+						[ngClass]="{'generic-template-maximized': isMaximized, 'generic-template-web': (is_web && !is_mobile)}"
+						*ngIf="message.type_message=='PL'">
+						<owl-carousel
+							[options]="{items: item_carousel, navigation: false, dots: false, center: false}"
+							[carouselClasses]="['owl-theme', 'row', 'sliding']">
+							<div class="item" style="padding: 0px 8px; margin-bottom: 6px;"
+								*ngFor="let payload of message.payload.message.attachment.payload.elements;let i = index">
+								<mat-card>
+									<img mat-card-image style="border-radius: 6px 6px 0px 0px"
+										src="{{payload.image_url}}">
+									<mat-card-content>
+										<p style="font-size: 16px; font-weight: 600; color: #333;">
+											{{payload.title}}</p>
+										<p style="color: #6f6f6f; margin-top: 0px;white-space: pre-line;">
+											{{payload.subtitle}}</p>
+									</mat-card-content>
+									<mat-card-actions>
+										<button class="btn-footer-pl" (click)="GenericButton(button)"
+											mat-button *ngFor="let button of payload.buttons"
+											[ngStyle]="{'background-color': config.accentBackgroundColor, 'color': config.accentColor}">{{button.title}}</button>
+									</mat-card-actions>
+								</mat-card>
+							</div>
+						</owl-carousel>
+					</div> -->
+
+					<!-- Contenedor template buttons -->
+					<!-- <div class="bbwidget-message" *ngIf="message.type_message=='TB'">
+						<div class="list-group">
+							<div class="list-group-item first-child"
+								[ngStyle]="{'background-color': config.tbTitleBackgroundColor}">
+								<div class="message">{{message.payload.message.attachment.payload.text}}
+								</div>
+							</div>
+							<button class="list-group-item button-list" mat-raised-button
+								(click)="GenericButton(button)"
+								*ngFor="let button of message.payload.message.attachment.payload.buttons">
+								<img src="{{button.image_url}}" *ngIf="button.image_url"
+									style="width: 20px; height: 20px; margin: 2px;"> {{button.title}}
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+		<!-- *ngIf="show_typing" -->
+		<!-- <div class="message-row" *ngIf="show_typing && isConnected">
+			<div class="animated zoomIn avatar"
+				[ngStyle]="{'background-image': 'url('+config.typingAvatar+')'}"></div>
+			<div class="animated zoomIn">
+				<div class="lds-ellipsis">
+					<div></div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
+			</div>
+		</div>
+	</div> -->
+
+	<!-- <div class="welcome-container web-w" *ngIf="list_message.length == 0 && !isIEOrEdge">
+			<div id="w-container-1-2" class="w-container-1-2">
+				<img id="w_img1" style="max-width: 100%; width: 250px;" [src]="config.welcomeImage">
+			</div>
+			<div id="language-select" *ngIf="signalRService.isLoading && !isConnected && !lang" [@inAnimation]>
+				<p>Selecciona un idioma para iniciar el chat:</p>
+				<mat-form-field>
+					<mat-label>Selecciona una opción</mat-label>
+					<mat-select #langSelect (change)="translate.use(langSelect.value)" [(value)]="translate.currentLang">
+						<mat-option *ngFor="let lang of translate.getLangs()" [value]="lang"
+							[selected]="lang === translate.currentLang">
+							{{lang | describeLang}}
+						</mat-option>
+					</mat-select>
+				</mat-form-field>
+				<button id="init-chat" mat-flat-button *ngIf="translate.currentLang" (click)="initSignalR()"
+					[ngStyle]="{'background-color': config.accentBackgroundColor, 'color': config.accentColor}">Iniciar</button>
+			</div>
+		</div> -->
+	<!-- <div class="bbwidget-connection-feedback animated" *ngIf="!isConnected && showFeedback">
+		<button (click)="initSignalR()">
+			<mat-icon>refresh</mat-icon>
+			{{'_CONECTION_FEEDBACK.RECONNECT' | translate}}
+		</button>
+	</div>
+</div>
+<div class="spacer-spinner">
+	<div class="d-flex-center">
+		<div class="spinner-sm" [hidden]="idleState != 'Reconectando'">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+	</div>
+</div>
+<div class="chat-footer animated zoomIn" *ngIf="!rateService && !supportIntro"
+	[style.--border-color]="config.inputBorderColor | safe: 'style'">
+	<input class="input-light" type="text" autocomplete="off"
+		placeholder="{{'_INPUT_PLACEHOLDER' | translate}}" [(ngModel)]="InputMessage"
+		(keyup.enter)="AddMessage('E')" autofocus disabled="{{!isConnected && signalRService.isLoading}}" />
+
+	<button mat-icon-button class="bbwidget-footer-button" (click)="AddMessage('E')">
+		<mat-icon>send</mat-icon>
+	</button>
+</div> -->

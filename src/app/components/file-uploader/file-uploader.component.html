@@ -1,0 +1,7 @@
+<h1>File Uploader</h1>
+
+<form>
+	<input type="file" name="file" id="file"
+		(change)="loadFile(fileInput.files)" #fileInput>
+	<button type="submit" (click)="uploadFile()">Upload</button>
+</form>
