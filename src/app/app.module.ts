@@ -14,23 +14,6 @@ import { CountdownModule } from 'ngx-countdown';
 import { VimeoPlayerComponent } from './components/vimeo-player/vimeo-player.component';
 import { AutoScrollComponent } from './components/auto-scroll/auto-scroll.component';
 import { CookiesComponent } from './components/cookies/cookies.component';
-import { NgcCookieConsentConfig, NgcCookieConsentModule } from 'ngx-cookieconsent';
-
-const cookieConfig:NgcCookieConsentConfig = {
-  cookie: {
-    domain: 'localhost' // or 'your.domain.com' 
-  },
-  palette: {
-    popup: {
-      background: '#000'
-    },
-    button: {
-      background: '#f1d600'
-    }
-  },
-  theme: 'edgeless',
-  type: 'opt-out'
-};
 
 @NgModule({
   declarations: [
@@ -49,7 +32,6 @@ const cookieConfig:NgcCookieConsentConfig = {
     ReactiveFormsModule,
     HttpClientModule,
     CountdownModule,
-    NgcCookieConsentModule.forRoot(cookieConfig)
     // AuthModule.forRoot({
     //   config: {
     //     authority: 'https://localhost:7284',
