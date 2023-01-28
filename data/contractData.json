@@ -1,0 +1,32 @@
+{
+	"noticePeriod": {
+		"startDate": "2022-08-01",
+		"endDate": "2022-10-31"
+	},
+	"blockingPeriod": [
+		{
+			"label": "Enfermedad 1",
+			"description": "",
+			"startDate": "2022-08-02",
+			"endDate": "2022-08-05"
+		},
+		{
+			"label": "Enfermedad 1",
+			"description": "",
+			"startDate": "2022-08-16",
+			"endDate": "2022-08-26"
+		},
+		{
+			"label": "Enfermedad 2",
+			"description": "",
+			"startDate": "2022-09-05",
+			"endDate": "2022-09-16"
+		},
+		{
+			"label": "Militar",
+			"description": "",
+			"startDate": "2022-08-08",
+			"endDate": "2022-10-24"
+		}
+	]
+}

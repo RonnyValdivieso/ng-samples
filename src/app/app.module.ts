@@ -14,6 +14,9 @@ import { CountdownModule } from 'ngx-countdown';
 import { VimeoPlayerComponent } from './components/vimeo-player/vimeo-player.component';
 import { AutoScrollComponent } from './components/auto-scroll/auto-scroll.component';
 import { CookiesComponent } from './components/cookies/cookies.component';
+import { IosStylesComponent } from './components/ios-styles/ios-styles.component';
+import { ApexChartsComponent } from './components/charts/apex-charts/apex-charts.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,8 @@ import { CookiesComponent } from './components/cookies/cookies.component';
     CountdownComponent,
     VimeoPlayerComponent,
     CookiesComponent,
+    IosStylesComponent,
+    ApexChartsComponent,
     // AutoScrollComponent
   ],
   imports: [
@@ -32,6 +37,7 @@ import { CookiesComponent } from './components/cookies/cookies.component';
     ReactiveFormsModule,
     HttpClientModule,
     CountdownModule,
+    NgApexchartsModule
     // AuthModule.forRoot({
     //   config: {
     //     authority: 'https://localhost:7284',

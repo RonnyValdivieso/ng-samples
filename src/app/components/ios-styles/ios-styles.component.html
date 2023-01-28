@@ -1,0 +1,9 @@
+<div id="contentVideo"
+	class="content-video">
+	<video id="videoAssistant" class="video video-bubble" playsinline>
+		<ng-container *ngFor="let source of sources">
+			<source *ngIf="!!source.url" [src]="source.url" type='{{source.type}}; codecs="{{source.codecs}}"'>
+		</ng-container>
+	</video>
+
+</div>

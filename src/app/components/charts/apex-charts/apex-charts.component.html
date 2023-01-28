@@ -1,0 +1,21 @@
+<div id="report-header">
+	<h1 class="report-title">
+		{{report.title}}
+	</h1>
+	<table>
+		<tr *ngFor="let item of report.detail">
+			<td>{{item.title}}:</td>
+			<td>{{item.description}}</td>
+		</tr>
+	</table>
+</div>
+<div id="chart">
+  <apx-chart
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [dataLabels]="chartOptions.dataLabels"
+    [plotOptions]="chartOptions.plotOptions"
+    [xaxis]="chartOptions.xaxis"
+    [legend]="chartOptions.legend"
+  ></apx-chart>
+</div>
